@@ -201,6 +201,7 @@
   .o-priv .ic{width:46px;height:46px;border:1.8px solid #000;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .o-priv b{font-size:15px;display:block}
   .o-priv small{color:var(--sub);font-size:13.5px}
+  .o-link{display:flex;align-items:center;gap:6px;padding:4px 16px 2px;font-size:14px;font-weight:500;color:#3a46d6;text-decoration:none}
   .pf-btns .blue{background:var(--blue);color:#fff}
   .fl-tabs{display:flex;border-bottom:1px solid var(--soft);margin-bottom:10px}
   .fl-tabs div{flex:1;text-align:center;padding:12px 0;font-size:14.5px;font-weight:600;color:var(--sub)}
@@ -395,6 +396,8 @@
       </div>
     </div>
     <div class="pf-name" id="oName"></div>
+    <div class="pf-bio" id="oBio"></div>
+    <a class="o-link" id="oLink" target="_blank" rel="noopener"></a>
     <div class="pf-bio" id="oMutual" style="color:var(--sub);font-size:13px"></div>
     <div class="pf-btns" id="oBtns"></div>
     <div id="oBody"></div>
@@ -751,7 +754,7 @@ const CAM_ICO='<svg width="34" height="34" viewBox="0 0 24 24" fill="none" strok
 const LOCK_ICO='<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
 const OTHERS={
   jm:{user:"jun9mok00",name:"정모",posts:"0",followers:"129",following:"129",priv:false},
-  sm:{user:"_minanism",name:"성민",img:"sungmin",posts:"7",followers:"32.7만",following:"97",priv:false,grid:"smPosts"}
+  sm:{user:"_minanism",name:"성민",bio:"⋆｡°☆@.@☆° ｡⋆",link:"https://youtube.com/@bishounensoft?si=-QwWL2fMEQjfyO82",linkText:"youtube.com/@bishounensoft",img:"sungmin",posts:"7",followers:"32.7만",following:"97",priv:false,grid:"smPosts"}
 };
 let otherFrom="profile";
 function openOther(k){
@@ -762,6 +765,10 @@ function openOther(k){
   $("oLock").innerHTML=o.priv?'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>':"";
   $("oPosts").textContent=o.posts; $("oFollowers").textContent=o.followers; $("oFollowing").textContent=o.following;
   $("oName").textContent=o.name;
+  $("oBio").textContent=o.bio||""; $("oBio").style.display=o.bio?"block":"none";
+  const ol=$("oLink");
+  if(o.link){ ol.href=o.link; ol.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1.2 1.2"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></svg><span>'+o.linkText+'</span>'; ol.style.display="flex"; }
+  else ol.style.display="none";
   $("oMutual").textContent="";
   if(o.priv){
     $("oMutual").textContent="";
