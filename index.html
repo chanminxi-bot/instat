@@ -278,6 +278,19 @@
   .so-avs{display:flex}
   .so-avs i{width:28px;height:28px;border-radius:50%;background:#555 center/cover;border:2px solid #000;margin-right:-9px}
   .so-ic{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:11.5px}
+  .ci-head{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:6px}
+  .ci-head .av{width:110px;height:110px}
+  .ci-head b{font-size:20px;font-weight:700}
+  .ci-acts{display:flex;justify-content:space-around;padding:26px 6px 30px}
+  .ci-acts>div{display:flex;flex-direction:column;align-items:center;gap:12px;font-size:12px;width:25%}
+  .ci-row{display:flex;align-items:center;gap:16px;padding:13px 18px}
+  .ci-row>svg:first-child,.ci-dot{flex-shrink:0}
+  .ci-dot{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#c13ee0,#5b5cf6)}
+  .ci-t{flex:1;display:flex;flex-direction:column}
+  .ci-t b{font-size:16px;font-weight:400}
+  .ci-t small{font-size:13.5px;color:var(--sub)}
+  .ci-new{background:#3897f0;color:#fff;font-size:11px;font-weight:700;border-radius:12px;padding:4px 10px;margin-right:6px}
+  .ch-top .who{cursor:pointer}
   /* post detail */
   .back{cursor:pointer;width:30px;display:flex;align-items:center}
   .top .ttl{flex:1;text-align:center;font-weight:700;font-size:16px;margin-right:30px}
@@ -524,6 +537,19 @@
     </div>
     <div class="chat" id="gWrap"></div>
     <div class="inp"><div class="camb"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><input id="gin" class="tin" placeholder="메시지..." autocomplete="off" enterkeyhint="send"><b id="gsend" class="tsend" onclick="gSend()">보내기</b></div>
+  </section>
+
+  <!-- ========== 채팅 정보 ========== -->
+  <section class="screen" id="cinfo" style="padding-bottom:0">
+    <div class="top" style="min-height:70px"><div class="cp-back click" onclick="go(ciFrom)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 8 12l7 7"/></svg></div></div>
+    <div class="ci-head"><div class="av" id="ciAv"></div><b id="ciName"></b></div>
+    <div class="ci-acts">
+      <div class="click" onclick="ciProfile()"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg><span>프로필</span></div>
+      <div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>검색</span></div>
+      <div><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg><span>업데이트 안 보기</span></div>
+      <div><svg width="28" height="28" viewBox="0 0 24 24" fill="#000"><circle cx="5" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="19" cy="12" r="1.8"/></svg><span>옵션</span></div>
+    </div>
+    <div class="ci-list"><div class="ci-row"><div class="ci-dot"></div><div class="ci-t"><b>맞춤 설정</b><small>테마 및 글꼴</small></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round"><path d="m9 5 7 7-7 7"/></svg></div><div class="ci-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><div class="ci-t"><b>테마 노래</b><small>해제됨</small></div><span class="ci-new">NEW</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round"><path d="m9 5 7 7-7 7"/></svg></div><div class="ci-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3.5"/><path d="M3 20c0-3.5 3-6 6-6"/><path d="m13 21 3-8 3 8M14 18.5h4"/></svg><div class="ci-t"><b>별명</b></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round"><path d="m9 5 7 7-7 7"/></svg></div><div class="ci-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><div class="ci-t"><b>개인정보 보호 및 안전</b></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round"><path d="m9 5 7 7-7 7"/></svg></div><div class="ci-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="15" cy="10" r="2.5"/><path d="M2 19c0-3 3-5 6-5s6 2 6 5M14 19c0-2 1.5-3.5 4-3.5M19 3v5M16.5 5.5h5"/></svg><div class="ci-t"><b>그룹 채팅 만들기</b></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round"><path d="m9 5 7 7-7 7"/></svg></div><div class="ci-row"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v13H9l-4 4z"/><path d="M12 8v4M12 15v.01"/></svg><div class="ci-t"><b>기능이 작동하지 않음</b></div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#737373" stroke-width="2" stroke-linecap="round"><path d="m9 5 7 7-7 7"/></svg></div></div>
   </section>
 
   <!-- ========== 메시지 요청 (협찬 스팸) ========== -->
@@ -1066,7 +1092,7 @@ function ensureRow(k){
 }
 // 채팅방 안 프사·이름 누르면 프로필
 document.getElementById("gchat").addEventListener("click",e=>{
-  if(gCur && e.target.closest(".av, .who b")) openOther(gCur);
+  if(gCur && !e.target.closest(".ch-top") && e.target.closest(".av")) openOther(gCur);
 });
 const gin=document.getElementById("gin");
 gin.addEventListener("input",()=>{ $("gsend").style.display=gin.value.trim()?"block":"none"; });
@@ -1089,6 +1115,36 @@ async function gSend(){
   }
 }
 
+// ---- 채팅 정보 화면 (헤더 이름 칸 누르면)
+let ciFrom="dm", ciProf=null;
+function openInfo(name, img, prof){
+  ciFrom=document.querySelector(".screen.on").id; ciProf=prof;
+  const a=$("ciAv"); a.className="av"+(img?"":" none"); a.style.backgroundImage=img?`url('${img}')`:"";
+  $("ciName").textContent=name; go("cinfo");
+}
+function ciProfile(){ if(ciProf) openOther(ciProf); }
+const CI_MAP={chat:["태영","taeyoung",null], achat:["앨런","allen",null], wchat:["우빈","woobin",null]};
+document.querySelectorAll(".ch-top .who").forEach(w=>{
+  w.addEventListener("click",e=>{
+    if(e.target.closest(".ty-ring")) return;
+    const sid=w.closest(".screen").id;
+    if(sid==="gchat"){ const c=CHATS[gCur]; openInfo(c.name, IMAGES[c.img], gCur); }
+    else if(CI_MAP[sid]){ const [n,k,pf]=CI_MAP[sid]; openInfo(n, IMAGES[k], pf); }
+  });
+});
+
+// ---- 알림 배너 위로 밀어서 지우기
+(()=>{
+  const b=document.getElementById("banner"); let y0=null, dy=0, moved=false;
+  const down=e=>{ y0=(e.touches?e.touches[0]:e).clientY; dy=0; moved=false; b.style.transition="none"; };
+  const move=e=>{ if(y0===null) return; dy=(e.touches?e.touches[0]:e).clientY-y0; if(Math.abs(dy)>6) moved=true; if(dy<0) b.style.transform=`translateY(${dy}px)`; };
+  const up=()=>{ if(y0===null) return; y0=null; b.style.transition=""; b.style.transform="";
+    if(dy<-30){ clearTimeout(bnTimer); b.classList.remove("on"); } };
+  b.addEventListener("touchstart",down,{passive:true}); b.addEventListener("touchmove",move,{passive:true}); b.addEventListener("touchend",up);
+  b.addEventListener("mousedown",down); window.addEventListener("mousemove",move); window.addEventListener("mouseup",up);
+  b.addEventListener("click",e=>{ if(moved){ e.stopImmediatePropagation(); e.preventDefault(); } },true);
+})();
+
 bg(document.getElementById("flSm"), IMAGES.sungmin, 0);
 paintAll(document);
 
@@ -1104,8 +1160,8 @@ function openPost(i){
 // navigation
 function go(id){
   document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("on", s.id===id));
-  document.getElementById("nav").style.display = ["chat","wchat","achat","gchat","req","newpost","caption","noti"].includes(id) ? "none" : "flex";
-  const tab = (id==="gchat"||(id==="other"&&otherFrom==="gchat")) ? "dm" : id==="noti" ? "home" : (id==="newpost"||id==="post"||id==="other"||id==="following") ? "profile" : id;
+  document.getElementById("nav").style.display = ["chat","wchat","achat","gchat","cinfo","req","newpost","caption","noti"].includes(id) ? "none" : "flex";
+  const tab = (id==="gchat"||id==="cinfo"||(id==="other"&&otherFrom==="gchat")) ? "dm" : id==="noti" ? "home" : (id==="newpost"||id==="post"||id==="other"||id==="following") ? "profile" : id;
   document.querySelectorAll(".nav .tab").forEach(t=>t.classList.toggle("active", t.dataset.tab===tab));
   const hp=document.querySelector(".i-home path");
   hp.setAttribute("fill", tab==="home" ? "#000" : "none"); hp.setAttribute("stroke","#000"); hp.setAttribute("stroke-width","2");
