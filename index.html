@@ -832,7 +832,7 @@ async function runT(){
     const rt=document.getElementById("rowT"); rt.classList.add("unread");
     if(!rt.querySelector(".dot")) rt.insertAdjacentHTML("beforeend",'<div class="dot"></div>');
     document.getElementById("dmDot").style.display="block";
-    pushBanner(IMAGES.taeyoung, "[deongkoo] 태영", "우웩🤮", ()=>go("chat"));
+    pushBanner(IMAGES.taeyoung, "[deongkoo] 태영", "우웩🤮", ()=>{ closeStory(); go("chat"); });
   }
 }
 // 앱 상단 푸시 알림 배너
